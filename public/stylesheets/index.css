@@ -1,0 +1,59 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  .container {
+    background: black;
+    color: white;
+    border: 1px solid black;
+    border-radius: 25px;
+    display: grid;
+    min-height: 100vh;
+    min-width: 100vw;
+    grid-template-columns: repeat(10, 1fr);
+    grid-row-gap: 20px;
+    grid-template-areas:
+      ". image image image image . . . . ."
+      ". image image image image . details details details ."
+      ". image image image image . details details details ."
+      ". image image image image . details details details .";
+    overflow: hidden;
+  }
+  
+  .container .film {
+    grid-area: image;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .image {
+    border: 1px solid blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+  }
+
+  #film-img {
+    height: 85%;
+    width: 75%;
+  }
+
+  .container .details {
+    border: 1px solid black;
+    grid-area: details;
+  }
+
+  li p {
+    display: inline;
+  }
+
+  li {
+      margin: 10px 0;
+  }
+
+  ul {
+    list-style-type:none;
+    padding: 0;
+  }
