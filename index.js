@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-
+const movies = require('./routes/movies');
 app.use(express.static('public'));
 
 mongoose.connect('mongodb://localhost/studio-ghibli-project', { useNewUrlParser: true })
@@ -9,6 +9,12 @@ mongoose.connect('mongodb://localhost/studio-ghibli-project', { useNewUrlParser:
     .catch((err) => console.log(`Error has occurred: ${err}`))
 
 app.set('view engine', 'ejs');
+
+//Built-in Middleware
+app.use(express.json());
+
+//Routes
+app.use('/api/movies', movies);
 
 app.get('/', (req, res) => res.render('landing'));
 
